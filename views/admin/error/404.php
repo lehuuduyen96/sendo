@@ -1,0 +1,1 @@
+<button type="" onclick="javascript:history.go(-1)">lỗi</button>

@@ -1,0 +1,12 @@
+﻿RewriteEngine On 
+ RewriteBase /
+# Tất cả file và đường dẫn sẽ được chạy về index.php 
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-l 
+#QSA - Append Query String: chỉ định server gắn chuỗi truy vấn vào cuối cùng của URL 
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
+RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+
+ErrorDocument 404 /views/admin/error/404.php
